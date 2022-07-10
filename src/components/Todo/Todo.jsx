@@ -1,8 +1,10 @@
+import s from './Todo.module.scss';
+import classnames from 'classnames'
 export const Todo = ({ item, removeTodoItem, doneTodoItem }) => {
     return (
         <>
-            <div>
-                <p>ID Todo: {item.id}</p>
+            <div className={classnames(s.todoItem, (item.isDone) ? `${s.todoIsDone}` : `${s.todoIsntDone}`) }>
+                {/* <p>ID Todo: {item.id}</p> */}
                 <p>Task: {item.text}</p>
                 <button
                     onClick={() => {

@@ -1,0 +1,11 @@
+.todo__wrapper {
+    text-align: center;
+}
+
+.todo__body {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}

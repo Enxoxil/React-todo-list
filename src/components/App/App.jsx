@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddTodo, ChangeInputValue, RemoveTodo, doneTodoItem } from "../../redux/redux.js";
 import { nanoid } from "nanoid";
 import { Todo } from "../Todo/Todo.jsx";
-
+import classNames from 'classnames';
+import s from './App.module.scss';
 const App = () => {
     const dispatch = useDispatch();
     const inputValue = useSelector((state) => state.input);
@@ -24,7 +25,7 @@ const App = () => {
         dispatch(doneTodoItem(item.id));
     };
     return (
-        <>
+        <div className={classNames(s.todo__wrapper)}>
             {" "}
             <form
                 onSubmit={(e) => {
@@ -38,10 +39,11 @@ const App = () => {
                     }}
                     value={inputValue}
                     placeholder="Text"
+                    
                 />
                 <button>Click me</button>
             </form>
-            <div>
+            <div className={classNames(s.todo__body)}>
                 {todoList.map((item, index) => (
                     <Todo
                         item={item}
@@ -51,7 +53,7 @@ const App = () => {
                     />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

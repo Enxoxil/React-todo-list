@@ -1,0 +1,17 @@
+.todoIsDone{
+    background-color: rgba(207, 250, 207, 0.287);
+}
+
+.todoIsntDone{
+    background-color: rgba(253, 153, 153, 0.562);
+}
+
+.todoItem {
+    display: block;
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
