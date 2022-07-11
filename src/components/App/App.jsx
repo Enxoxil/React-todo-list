@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AddTodo, ChangeInputValue, RemoveTodo, doneTodoItem } from "../../redux/redux.js";
+import { AddTodo, ChangeInputValue, RemoveTodo, ChangeDoneTodoList } from "../../redux/redux.js";
 import { nanoid } from "nanoid";
 import { Todo } from "../Todo/Todo.jsx";
 import classNames from 'classnames';
@@ -22,7 +22,8 @@ const App = () => {
         dispatch(RemoveTodo(item.id));
     };
     const doneTodo = (item) => {
-        dispatch(doneTodoItem(item.id));
+
+        dispatch(ChangeDoneTodoList(item.id));
     };
     return (
         <div className={classNames(s.todo__wrapper)}>
