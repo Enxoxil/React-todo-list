@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AddTodo, ChangeInputValue, RemoveTodo, ChangeDoneTodoList } from "../../redux/redux.js";
+import { AddTodo, ChangeInputValue, RemoveTodo, RemoveDoneTodo, ChangeDoneTodoList } from "../../redux/todos-reducer.js";
 import { nanoid } from "nanoid";
 import { Todo } from "../Todo/Todo.jsx";
 import classNames from 'classnames';
@@ -9,6 +9,8 @@ const App = () => {
     const dispatch = useDispatch();
     const inputValue = useSelector((state) => state.input);
     const todoList = useSelector((state) => state.todoList);
+    const doneTodoList = useSelector((state) => state.doneTodoList);
+
 
     const changeInputValue = (e) => {
         dispatch(ChangeInputValue(e.target.value));
@@ -21,13 +23,15 @@ const App = () => {
     const removeTodoItem = (item) => {
         dispatch(RemoveTodo(item.id));
     };
-    const doneTodo = (item) => {
+    const removeDoneTodoItem = (item) => {
+        dispatch(RemoveDoneTodo(item.id));
+    };
 
+    const doneTodo = (item) => {
         dispatch(ChangeDoneTodoList(item.id));
     };
     return (
-        <div className={classNames(s.todo__wrapper)}>
-            {" "}
+        <div className={s.todo__header}>
             <form
                 onSubmit={(e) => {
                     addTodoItem(e);
@@ -44,16 +48,30 @@ const App = () => {
                 />
                 <button>Click me</button>
             </form>
-            <div className={classNames(s.todo__body)}>
-                {todoList.map((item, index) => (
-                    <Todo
-                        item={item}
-                        key={index}
-                        removeTodoItem={removeTodoItem}
-                        doneTodoItem={doneTodo}
-                    />
-                ))}
-            </div>
+            <section className={classNames(s.todo__wrapper)} >
+                <div className={classNames(s.todo__bodyActive)}>
+                    {todoList.map((item, index) => (
+                        <Todo
+                            item={item}
+                            key={index}
+                            removeTodoItem={removeTodoItem}
+                            doneTodoItem={doneTodo}
+                        />
+
+                    ))}
+                </div>
+                <div className={classNames(s.todo__bodyDone)}>
+                    {doneTodoList.map((item, index) => (
+                        <Todo
+                            item={item}
+                            key={index}
+                            doneTodoItem={doneTodo}
+                            removeTodoItem={removeDoneTodoItem}
+                        />
+
+                    ))}
+                </div>
+            </section>
         </div>
     );
 };

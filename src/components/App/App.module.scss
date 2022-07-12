@@ -1,8 +1,19 @@
 .todo__wrapper {
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
-
-.todo__body {
+.todo__header{
+    text-align: center;
+}
+.todo__bodyActive {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+.todo__bodyDone {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
