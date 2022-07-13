@@ -2,6 +2,9 @@
     text-align: center;
     display: flex;
     justify-content: space-around;
+    max-width: 70%;
+    margin: 0 auto;
+
 }
 .todo__header{
     text-align: center;
@@ -12,6 +15,7 @@
     flex-direction: column;
     padding-top: 20px;
     flex-wrap: wrap;
+    width: 180px;
 }
 .todo__bodyDone {
     display: flex;
@@ -19,4 +23,5 @@
     flex-direction: column;
     padding-top: 20px;
     flex-wrap: wrap;
+    width: 180px;
 }

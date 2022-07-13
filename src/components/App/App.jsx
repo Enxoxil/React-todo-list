@@ -50,6 +50,7 @@ const App = () => {
             </form>
             <section className={classNames(s.todo__wrapper)} >
                 <div className={classNames(s.todo__bodyActive)}>
+                    <p>Active todos</p>
                     {todoList.map((item, index) => (
                         <Todo
                             item={item}
@@ -61,6 +62,7 @@ const App = () => {
                     ))}
                 </div>
                 <div className={classNames(s.todo__bodyDone)}>
+                    <p>Done todos</p>
                     {doneTodoList.map((item, index) => (
                         <Todo
                             item={item}
